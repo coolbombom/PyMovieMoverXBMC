@@ -1,0 +1,78 @@
+{
+   "_comment":"# from: folder to look for files in - to: folder to move files to",
+   "folders":[
+      {
+         "from":"/example/folder/1",
+         "to":"/somewhere"
+      },
+      {
+         "from":"/example/folder/2",
+         "to":"/somewhere/else"
+      }
+   ],
+
+   "config":{
+      "_comment":"# general settings (1=enabled,0=disabled) - log_error,log_info: level of logging - cleanup_after_move: remove sub-folders and files that movie was in - cleanup_at_end: remove all folders in 'folders from' if no movie file was found",
+      "log_error":1,
+      "log_info":1,
+      "cleanup_after_move":1,
+      "cleanup_at_end":1,
+      "download_subtitles":1,
+      "download_trailer":0,
+      "make_nfo_file":1,
+      "download_images":1,
+      "moveto_year_folder":1,
+      "move_without_metadata":0,
+
+      "_comment":"# imdb id lookup - search_web_id: search the web for the id 1=enabled,0=disabled - info_file_ext: file types to look for the id in",
+      "info_file_ext":["nfo","txt"],      
+      "search_web_id":1,
+      "web_page_lookup":[
+         {
+            "page_lookup":"http://kickassproxy.info/",
+            "g_result_find":"kickass.to/(.*?)"
+         },
+         {
+            "page_lookup":"http://h33t.com/",
+            "g_result_find":"h33t.com/(.*?)"
+         },
+         {
+            "page_lookup":"http://kat.unlocktorrent.com/",
+            "g_result_find":"kat.unlocktorrent.com/(.*?)"
+         },
+         {
+            "page_lookup":"http://www.magnetdl.com/",
+            "g_result_find":"www.magnetdl.com/(.*?)"
+         }
+      ],
+
+      "_comment":"# find file criteria - file_ext: filetypes to look for - file_size_min, file_size_max: the size of the file must be within this range",
+      "file_ext":["mkv","mp4","avi","wmv"],
+      "file_size_min":3500,
+      "file_size_max":500000,
+
+      "_comment":"# tmdb search settings (no need to change)",
+      "tmdb_api_key":"119ed0a13ac4bc43a10436cc68a58b8a",
+      "tmdb_server":"http://api.themoviedb.org/3/movie/%s?api_key=%s&append_to_response=trailers",
+      "tmdb_picture_link":"http://d3gtl9l2a4fn1j.cloudfront.net/t/p/original",
+
+      "_comment":"# opensubtitles search settings - opensub_languages: languages to search for - opensub_auto_extract: 1=enabled,0=disabled, only extracts the first match from opensub_languages",
+      "opensub_languages":["eng"],
+      "opensub_min_rating":0.0,
+      "opensub_match_limit":0.8,
+      "opensub_auto_extract":1,
+      "opensub_agent":"PyMovieMoverXBMC",
+
+      "_comment":"# youtube settings - yt_criteria: criteria that must match the youtube video, critrias can be found in pyMovieMoverXBMC.py",
+      "yt_criteria":{
+         "profile":"High",
+         "resolution":"720p",
+         "extension":"mp4"
+      },
+      "yt_url":"http://www.youtube.com/get_video_info",
+
+      "_comment":"# google settings (no need to change)",
+      "g_language":"en",
+      "g_search_url":"http://www.google.com/search?hl=%s&q=%s&btnG=Google+Search"
+   }
+}
